@@ -1,6 +1,6 @@
 GET http://localhost:3000
 
-### checking contactss locally
+### checking contacts locally
 GET http://localhost:3000/contacts
 
 ### checking a specific contacts locally
@@ -28,6 +28,43 @@ Content-Type: application/json
     "email": "test41@test.com",
     "favoriteColor": "Blue",
     "birthday": "12/12/20"
+}
+
+### deleting a contacts
+DELETE http://localhost:3000/contacts/67a59e7886d37f8162611ab8 HTTP/1.1
+
+### checking employees locally
+GET http://localhost:3000/contacts
+
+### checking a specific contacts locally
+GET http://localhost:3000/contacts/67931a10f5b8c1283bf342da
+
+### creating a contacts
+POST http://localhost:3000/contacts HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Joe",
+    "lastName": "Rouge",
+    "email": "test1@gmail.com",
+    "favoriteColor": "grey",
+    "birthday": "12/12/20",
+    "department": "Sales",
+    "position": "Manager",
+}
+
+### changing a contacts
+PUT http://localhost:3000/contacts/67a59f46eef680eb0beac3b4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Matt",
+    "lastName": "Rouge",
+    "email": "test1@test.com",
+    "favoriteColor": "purple",
+    "birthday": "12/12/20",
+    "department": "Sales",
+    "position": "Manager",
 }
 
 ### deleting a contacts

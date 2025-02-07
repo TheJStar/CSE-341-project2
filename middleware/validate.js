@@ -25,6 +25,29 @@ const saveContact = (req, res, next) => {
     });
 };
 
+const saveEmployee = (req, res, next) => {
+  const validationRule = {
+    firstName: 'required|string',
+    lastName: 'required|string',
+    email: 'required|email',
+    favoriteColor: 'required|string',
+    birthday: 'string',
+    department: 'required|string',
+    position: 'required|string',
+  };
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
 // Express-Validator
 
 // firstName: req.body.firstName,
@@ -59,6 +82,7 @@ const validate = (req, res, next) => {
 
 module.exports = {
     saveContact,
+    saveEmployee,
     // Express-validator
     userValidator,
     validate,
