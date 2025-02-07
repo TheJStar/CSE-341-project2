@@ -2,7 +2,7 @@ const mongodb = require("../db/index");
 const ObjectId = require("mongodb").ObjectId;
 
 const getAll = async (req, res) => {
-    //#swagger.tags=[Employee]
+    //#swagger.tags=["Employee"]
     const results = await mongodb.getDb().db().collection("employee").find();
     results.toArray().then((lists) => {
         res.setHeader("Content-Type", "application/json");
@@ -11,7 +11,7 @@ const getAll = async (req, res) => {
 }
 
 const getSingle = async (req, res) => {
-    //#swagger.tags=[Employee]
+    //#swagger.tags=["Employee"]
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json("Must use a valid contact id to find a employee.");
     }
@@ -24,7 +24,7 @@ const getSingle = async (req, res) => {
 }
 
 const createEmployee = async (req, res) => {
-    //#swagger.tags=[Employee]
+    //#swagger.tags=["Employee"]
     const contact = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -43,7 +43,7 @@ const createEmployee = async (req, res) => {
 }
 
 const updateEmployee = async (req, res) => {
-    //#swagger.tags=[Employee]
+    //#swagger.tags=["Employee"]
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json("Must use a valid contact id to find a employee.");
     }
@@ -66,7 +66,7 @@ const updateEmployee = async (req, res) => {
 }
 
 const deleteEmployee = async (req, res) => {
-    //#swagger.tags=[Employee]
+    //#swagger.tags=["Employee"]
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json("Must use a valid contact id to find a employee.");
     }

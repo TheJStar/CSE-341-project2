@@ -35,7 +35,9 @@
     },
     "/contacts/": {
       "get": {
-        "tags": [],
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -47,7 +49,9 @@
         }
       },
       "post": {
-        "tags": [],
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "parameters": [
           {
@@ -90,7 +94,9 @@
     },
     "/contacts/{id}": {
       "get": {
-        "tags": [],
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -113,7 +119,9 @@
         }
       },
       "put": {
-        "tags": [],
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "parameters": [
           {
@@ -163,7 +171,9 @@
         }
       },
       "delete": {
-        "tags": [],
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "parameters": [
           {
@@ -188,7 +198,9 @@
     },
     "/employees/": {
       "get": {
-        "tags": [],
+        "tags": [
+          "Employee"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -200,7 +212,9 @@
         }
       },
       "post": {
-        "tags": [],
+        "tags": [
+          "Employee"
+        ],
         "description": "",
         "parameters": [
           {
@@ -249,7 +263,9 @@
     },
     "/employees/{id}": {
       "get": {
-        "tags": [],
+        "tags": [
+          "Employee"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -272,7 +288,9 @@
         }
       },
       "put": {
-        "tags": [],
+        "tags": [
+          "Employee"
+        ],
         "description": "",
         "parameters": [
           {
@@ -328,7 +346,9 @@
         }
       },
       "delete": {
-        "tags": [],
+        "tags": [
+          "Employee"
+        ],
         "description": "",
         "parameters": [
           {
