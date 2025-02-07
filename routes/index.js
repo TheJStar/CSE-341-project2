@@ -1,7 +1,9 @@
 const router = require("express").Router();
-const controller = require('./controllers'); 
+const controller = require('../controllers'); 
 
 router.use("/", require("./swagger"))
+
+router.use("/contacts", require("./contacts"))
 
 router.get("/", (req, res) => {
     //#swagger.tags=[Hello World!]

@@ -1,5 +1,9 @@
 const express = require("express");
 const routes = require("./routes");
+const {
+    logError,
+    isOperationalError
+} = require("./middleware/errorHandler")
 
 const app = express();
 
@@ -16,6 +20,18 @@ app.use((req, res, next) => {
     next();
 });
 app.use("/", routes);
+
+process.on('unhandledRejection', error => {
+    throw error
+})
+
+process.on('uncaughtException', error => {
+    logError(error)
+   
+    if (!isOperationalError(error)) {
+        process.exit(1)
+    }
+})
 
 mongodb.initDb((err) => {
     if (err) {
