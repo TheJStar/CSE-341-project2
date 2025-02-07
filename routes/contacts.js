@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const controller = require('../controllers/contacts');
+const controller = require("../controllers/contacts");
 const {saveContact,
     // expres-validator
     userValidator,

@@ -1,22 +1,22 @@
 const { body, param, validationResult } = require("express-validator");
 
-const validator = require('../helper/validate');
+const validator = require("../helper/validate");
 
 // validatorjs
 
 const saveContact = (req, res, next) => {
     const validationRule = {
-      firstName: 'required|string',
-      lastName: 'required|string',
-      email: 'required|email',
-      favoriteColor: 'required|string',
-      birthday: 'string'
+      firstName: "required|string",
+      lastName: "required|string",
+      email: "required|email",
+      favoriteColor: "required|string",
+      birthday: "string"
     };
     validator(req.body, validationRule, {}, (err, status) => {
       if (!status) {
         res.status(412).send({
           success: false,
-          message: 'Validation failed',
+          message: "Validation failed",
           data: err
         });
       } else {
@@ -27,19 +27,19 @@ const saveContact = (req, res, next) => {
 
 const saveEmployee = (req, res, next) => {
   const validationRule = {
-    firstName: 'required|string',
-    lastName: 'required|string',
-    email: 'required|email',
-    favoriteColor: 'required|string',
-    birthday: 'string',
-    department: 'required|string',
-    position: 'required|string',
+    firstName: "required|string",
+    lastName: "required|string",
+    email: "required|email",
+    favoriteColor: "required|string",
+    birthday: "string",
+    department: "required|string",
+    position: "required|string",
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
       res.status(412).send({
         success: false,
-        message: 'Validation failed',
+        message: "Validation failed",
         data: err
       });
     } else {

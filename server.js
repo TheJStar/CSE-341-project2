@@ -21,11 +21,11 @@ app.use((req, res, next) => {
 });
 app.use("/", routes);
 
-process.on('unhandledRejection', error => {
+process.on("unhandledRejection", error => {
     throw error
 })
 
-process.on('uncaughtException', error => {
+process.on("uncaughtException", error => {
     logError(error)
    
     if (!isOperationalError(error)) {

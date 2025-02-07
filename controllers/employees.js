@@ -1,11 +1,11 @@
 const mongodb = require("../db/index");
-const ObjectId = require('mongodb').ObjectId;
+const ObjectId = require("mongodb").ObjectId;
 
 const getAll = async (req, res) => {
     //#swagger.tags=[Employee]
-    const results = await mongodb.getDb().db().collection("employees").find();
+    const results = await mongodb.getDb().db().collection("employee").find();
     results.toArray().then((lists) => {
-        res.setHeader('Content-Type', 'application/json');
+        res.setHeader("Content-Type", "application/json");
         res.status(200).json(lists);
     })
 }
@@ -13,12 +13,12 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
     //#swagger.tags=[Employee]
     if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid contact id to find a employee.');
+        res.status(400).json("Must use a valid contact id to find a employee.");
     }
     const contactId = new ObjectId(req.params.id);
-    const results = await mongodb.getDb().db().collection("employees").find({ _id: contactId });
+    const results = await mongodb.getDb().db().collection("employee").find({ _id: contactId });
     results.toArray().then((lists) => {
-            res.setHeader('Content-Type', 'application/json');
+            res.setHeader("Content-Type", "application/json");
             res.status(200).json(lists);
     })
 }
@@ -34,7 +34,7 @@ const createEmployee = async (req, res) => {
         department: req.body.department,
         position: req.body.position
     };
-    const results = await mongodb.getDb().db().collection("employees").insertOne(contact);
+    const results = await mongodb.getDb().db().collection("employee").insertOne(contact);
     if (results.acknowledged) {
         res.status(201).send();
     } else {
@@ -45,7 +45,7 @@ const createEmployee = async (req, res) => {
 const updateEmployee = async (req, res) => {
     //#swagger.tags=[Employee]
     if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid contact id to find a employee.');
+        res.status(400).json("Must use a valid contact id to find a employee.");
     }
     const contactId = new ObjectId(req.params.id);
     const contact = {
@@ -57,7 +57,7 @@ const updateEmployee = async (req, res) => {
         department: req.body.department,
         position: req.body.position
     };
-    const results = await mongodb.getDb().db().collection("employees").replaceOne({ _id: contactId }, contact);
+    const results = await mongodb.getDb().db().collection("employee").replaceOne({ _id: contactId }, contact);
     if (results.modifiedCount > 0) {
         res.status(204).send();
     } else {
@@ -68,10 +68,10 @@ const updateEmployee = async (req, res) => {
 const deleteEmployee = async (req, res) => {
     //#swagger.tags=[Employee]
     if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid contact id to find a employee.');
+        res.status(400).json("Must use a valid contact id to find a employee.");
     }
     const contactId = new ObjectId(req.params.id);
-    const results = await mongodb.getDb().db().collection("employees").deleteOne({ _id: contactId }, true);
+    const results = await mongodb.getDb().db().collection("employee").deleteOne({ _id: contactId }, true);
     if (results.deletedCount > 0) {
         res.status(204).send();
     } else {

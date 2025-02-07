@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const controller = require('../controllers/employees');
+const controller = require("../controllers/employees");
 const { saveEmployee } = require("../middleware/validate");
 
 router.get("/", controller.getAll);
