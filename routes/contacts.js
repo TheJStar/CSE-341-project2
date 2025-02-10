@@ -5,14 +5,15 @@ const {saveContact,
     userValidator,
     validate,
 } = require("../middleware/validate");
+const { isAuthenticated } = require("../middleware/authenticate")
 
 router.get("/", controller.getAll);
 
 router.get("/:id", controller.getSingle);
 
-router.post("/", saveContact, controller.createContact);
+router.post("/", isAuthenticated, saveContact, controller.createContact);
 
-router.put("/:id", saveContact, controller.updateContact);
+router.put("/:id", isAuthenticated, saveContact, controller.updateContact);
 
 router.delete("/:id", controller.deleteContact);
 
